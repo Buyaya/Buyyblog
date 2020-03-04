@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.title }}</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h2>我去买个橘子</h2>
+            <a>博客</a>  |
+        </div>
+        <hr>
+        <div class="content">
+            <h4>{{ blog.title }}</h4>
+            <p>{{ blog.author }}|{{ blog.blog_type }}|{{ blog.created_time|date:'Y-m-d'  }}</p>
+            <p>{{ blog.context }}</p>
+        </div>
+    </div>
+</body>
+</html>

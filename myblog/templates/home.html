@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>买个橘子</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .content{
+            width:50%;
+            margin:50px auto;
+        }
+        .content_div{
+            width:100%;
+            height:100%;
+            margin-bottom: 50px;
+        }
+        .content_div_content{
+            margin-left: 20px;
+        }
+        .top{
+            width: 100%;
+            height: 70px;
+        }
+        .top_left{
+            float: left;
+        }
+        .top_left h2{
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="top">
+            <div class="top_left">
+                <h2>boke</h2>
+            </div>
+            <div class="top_right">
+
+            </div>
+        </div>
+        <hr>
+        <div class="content">
+            {% for blog in blogs %}
+                <div class="content_div">
+                    <div class="content_div_content">
+                        <a href="{% url 'blog_detail' blog.pk %}"><h4>{{ blog.title }}</h4></a>
+                        <p>{{ blog.author }}|{{ blog.blog_type }}|{{ blog.created_time|date:'Y-m-d'  }}</p>
+                        <p>{{ blog.context|truncatechars_html:150 }}...</p>
+                    </div>
+                </div>
+            {% empty %}
+                <h3>----暂无博客，敬请期待----</h3>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
